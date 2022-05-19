@@ -12,7 +12,7 @@ const HomePage = () => {
 		<Navbar />
 		<section className="" id="Content">
 			<div className="container-fluid p-0 ">
-				<div className="row mt-4">
+				<div className="row p-0 m-0 mt-4">
 					<div className="col-2">
 						
 					</div>
