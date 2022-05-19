@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Post from "../components/Post";
 import PostImageProfile from "../components/PostImageProfile";
 
-const UserPage = () => {
+const MyAccountPage = () => {
 	return (
 		<>
 		<Navbar />
@@ -78,6 +78,11 @@ const UserPage = () => {
                                             <p className="fs-6 text-dark  my-auto"><i className="me-1 bi bi-grid-3x3"></i>Posts</p>
                                         </Link>
                                     </div>
+                                    <div className="mx-3">
+                                        <Link className="no-link" to="/b">
+                                            <p className="fs-6 text-dark  my-auto"><i className="me-1 bi bi-file-check"></i>Saved</p>
+                                        </Link>
+                                    </div>
                                     <div className="mx-3 me-auto">
                                         <Link className="no-link" to="/c">
                                             <p className="fs-6 text-dark  my-auto"><i className="me-1 bi bi-tags"></i>Tagged</p>
@@ -123,4 +128,4 @@ const UserPage = () => {
 	);
 };
 
-export default UserPage;
+export default MyAccountPage;

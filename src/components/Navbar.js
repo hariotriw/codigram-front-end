@@ -17,10 +17,22 @@ const Navbar = () => {
 									<i className="ms-1 me-auto bi bi-caret-right-fill"></i>Codigram
 								</Link>
 								<Link className="cst-navbar-title p-0 no-link text-black ms-auto me-4 my-auto " to="/">
-									<p className="fs-5 my-auto">My posts<i className="bi bi-collection-fill ms-1"></i></p>
+									<p className="fs-5 my-auto">
+										{/* Search */}
+										<i className="bi bi-search ms-1"></i>
+									</p>
+								</Link>
+								<Link className="cst-navbar-title p-0 no-link text-black me-4 my-auto " to="/">
+									<p className="fs-5 my-auto">
+										{/* My posts */}
+										<i className="bi bi-collection-fill ms-1"></i>
+									</p>
 								</Link>
 								<Link className="cst-navbar-title p-0 no-link text-black me-3 my-auto " to="/">
-									<p className="fs-5 my-auto">New post<i className="bi bi-plus-circle-fill ms-1"></i></p>
+									<p className="fs-5 my-auto">
+										{/* New post */}
+										<i className="bi bi-plus-circle-fill ms-1"></i>
+									</p>
 								</Link>
 							</div>
 						</div>
