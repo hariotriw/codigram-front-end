@@ -2,37 +2,53 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Code Here */
+/* ----- Colour ----- */
+  .bg-forestgreen {
+    background-color: forestgreen;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .bg-olivedrab {
+    background-color: olivedrab;
   }
-  to {
-    transform: rotate(360deg);
+  .bg-greenyellow {
+    background-color: greenyellow;
   }
-}
+  .bg-limegreen {
+    background-color: limegreen;
+  }
+  .bg-dodgerblue {
+    background-color: dodgerblue;
+  }
+  .bg-cstgainsboro {
+    background-color: #DFE3E1;
+  }
+  .bg-cstmincream {
+    background-color: #F8FAF9;
+  }
+  .bg-snow {
+    background-color: #fafafa;
+  }
+
+/* ----- Navbar ----- */
+  .cst-navbar {
+    height: 3rem;
+  }
+  .cst-navbar-title {
+    font-size: 25px;
+  }
+  
+  .text-justify {
+    text-align: justify;
+  }
+  .same-line {
+    line-height: 1.5em;
+    height: 14em;       /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+  }
+  /* body {
+    min-height: 1000px;
+  } */
+  .no-link {
+    text-decoration: none;
+  }
