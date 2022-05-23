@@ -42,7 +42,7 @@ const UserPage = () => {
                                                 </div>
                                             </div>
                                             {/* fitur belum dikembangkan */}
-                                            {/* <div className="col-4">
+                                            <div className="col-4">
                                                 <div className="py-2">
                                                     <p className="fs-6 text-start text-dark me-auto my-auto">100 Followers</p>
                                                 </div>
@@ -51,7 +51,7 @@ const UserPage = () => {
                                                 <div className="py-2">
                                                     <p className="fs-6 text-start text-dark me-auto my-auto">1000 Following</p>
                                                 </div>
-                                            </div> */}
+                                            </div>
                                         </div>
                                         <div className="row p-0 m-0">
                                             <div className="mx-auto d-flex py-1">
