@@ -12,10 +12,6 @@ const HomePage = () => {
 	const navigate = useNavigate()
 	const { getAllPostsLoading, getAllPostsResult, getAllPostsError } = useSelector((state) => state.PostReducer)
 	const { getDataUserLoading, getDataUserResult, getDataUserError, loginStatusResult } = useSelector((state) => state.UserReducer)
-	// const { loginStatusResult } = useSelector((state) => state.UserReducer)
-	// const { loginStatusLoading, loginStatusResult, loginStatusError } = useSelector((state) => state.UserReducer)
-	// const { loginStatusResult } = useSelector((state) => state.UserReducer)
-
 	const dispatch = useDispatch()
 
 	useEffect(() => {

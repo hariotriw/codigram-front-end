@@ -1,10 +1,35 @@
-import React from "react";
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from "../components/Navbar";
 import Post from "../components/Post";
 import PostImageProfile from "../components/PostImageProfile";
+import { useDispatch, useSelector } from "react-redux";
+import { loginStatus, getDataUser } from "../actions/AuthenticationAction";
+import { getMyPosts } from "../actions/PostAction";
+import MyPostImage from "../components/MyPostImage";
 
 const MyAccountPage = () => {
+    const navigate = useNavigate()
+	const { getMyPostsLoading, getMyPostsResult, getMyPostsError } = useSelector((state) => state.PostReducer)
+	const { getDataUserLoading, getDataUserResult, getDataUserError, loginStatusResult } = useSelector((state) => state.UserReducer)
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(getMyPosts())
+		dispatch(loginStatus())
+		dispatch(getDataUser())
+	}, [dispatch])
+
+    let [strId, setStrId] = useState('')
+	let [image, setImage] = useState('')
+	let [UserId, setUserId] = useState('')
+	let [caption, setCaption] = useState('')
+	let [createdAt, setCreatedAt] = useState('')
+
+    if(loginStatusResult.status === false) {
+		navigate('/login')
+	}
+    // console.log(getMyPostsResult);
 	return (
 		<>
 		<Navbar />
@@ -32,7 +57,7 @@ const MyAccountPage = () => {
                                         {/* --- Account information section */}
                                         <div className="row p-0 m-0">
                                             <div className="mx-auto d-flex py-2 mb-2">
-                                                <p className="fs-5 text-dark me-auto my-auto">hariot</p>
+                                                <p className="fs-5 text-dark me-auto my-auto">{getDataUserResult ? getDataUserResult.username : 'username'}</p>
                                             </div>
                                         </div>
                                         <div className="row p-0 m-0 mb-3">
@@ -55,13 +80,13 @@ const MyAccountPage = () => {
                                         </div>
                                         <div className="row p-0 m-0">
                                             <div className="mx-auto d-flex py-1">
-                                                <p className="fs-5 fw-bold text-dark me-auto my-auto">Hario Tri Wibowo</p>
+                                                <p className="fs-5 fw-bold text-dark me-auto my-auto">{getDataUserResult ? getDataUserResult.fullname : 'fullname'}</p>
                                             </div>
                                         </div>
                                         <div className="row p-0 m-0">
                                             <div className="mx-auto d-flex py-0 mb-2">
                                                 <p className="py-0 fs-6 text-justify text-break text-dark">
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe quis, exercitationem veritatis maxime itaque ratione, eaque iure accusantium minus ad mollitia incidunt vel! Animi, eius dignissimos illo temporibus a
+                                                    {getDataUserResult ? getDataUserResult.bio : 'no bio'}
                                                 </p>
                                             </div>
                                         </div>
@@ -107,13 +132,14 @@ const MyAccountPage = () => {
                                             <img src="https://via.placeholder.com/150" className="img-fluid p-0" alt="..."/>
                                         </Link>
                                     </div> */}
-                                    <PostImageProfile />
-                                    <PostImageProfile />
-                                    <PostImageProfile />
-                                    <PostImageProfile />
-                                    <PostImageProfile />
-                                    <PostImageProfile />
-                                    <PostImageProfile />
+                                    {getMyPostsResult ? getMyPostsResult.posts.map(post => {
+                                        return (
+                                            // <PostImageProfile strId={post.strId} image={post.image}/>
+                                            <MyPostImage strId={post.strId} image={post.image}/>
+                                        )
+                                    }) : 
+                                        getMyPostsLoading ? <p>Loading data . . .</p> : 
+                                            getMyPostsError ? getMyPostsError : <p>failed to get data</p>}
                                 </div>
                             </div>
 						</div>
